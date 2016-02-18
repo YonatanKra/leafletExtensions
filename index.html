@@ -13,7 +13,7 @@
     <script src="bower_components/angular-material/angular-material.min.js"></script>
     <script src="bower_components/leaflet/dist/leaflet.js"></script>
     <script src="bower_components/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
-    <script src="bower_components/ui-leaflet/dist/ui-leaflet.min.no-header.js"></script>
+    <script src="bower_components/ui-leaflet/dist/ui-leaflet.js"></script>
 
     <!-- Load app scripts -->
     <script src="components/demoApp.js"></script>
@@ -21,7 +21,7 @@
     <!-- Load the extensions -->
     <script src="components/layerSelector/layerSelector.js"></script>
 </head>
-<body>
-    <leaflet-extensions-demo-app layout="column"></leaflet-extensions-demo-app>
+<body layout="row">
+    <leaflet-extensions-demo-app flex layout="column"></leaflet-extensions-demo-app>
 </body>
 </html>

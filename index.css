@@ -10,3 +10,7 @@ html, body, #demoWrapper{
     height: 100%;
 }
 
+md-sidenav{
+    position: relative;
+}
+

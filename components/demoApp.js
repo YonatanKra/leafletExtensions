@@ -29,12 +29,13 @@ myApp.component('demoMenu', {
     </md-list-item>\
     </md-list>\
     </md-sidenav>',
-    controller: function demoMenuCtrl(){
-        this.items = [
-            {
-                name: 'layerSelector'
-            }
-        ]
+    controller: function demoMenuCtrl(demoService){
+        this.items = demoService.Extensions.layersSelection;
+
+        // add a method that changes the demoContentCtrl -> this.contentCtrl.template...
+    },
+    require: {
+      contentCtrl: 'demoContent'
     },
     controllerAs: 'demoMenuCtrl'
 });
@@ -46,7 +47,7 @@ myApp.component('demoContent', {
     </md-content>',
     controllerAs: 'demoContentCtrl',
     controller: function(demoService){
-        this.template = demoService.demoTemplates.layersSelection;
+        this.template = demoService.Extensions.layersSelection.template;
     }
 });
 
@@ -56,8 +57,11 @@ myApp.run(['$templateCache', function($templateCache){
 
 myApp.service('demoService', [function(){
     return {
-        demoTemplates: {
-            layersSelection: 'leafletLayersSelector'
+        Extensions: {
+            layersSelection: {
+                name: 'Layers Selection',
+                template: 'leafletLayersSelector'
+            }
         }
     }
 }]);

@@ -10,7 +10,7 @@ extensionApp.directive('uiLeafletLayersSelector', ['$compile', '$templateCache',
         restrict: 'A',
         priority: -100,
         controller: function layerSelectorCtrl($scope, $element) {
-            this.tileDist = $scope.$eval($element.attr); // get the data from the element - no binding!
+            this.tileDist = $scope.$eval($element.attr('ui-leaflet-layers-selector')); // get the data from the element - no binding!
 
             // now you need to get the template from $templateCache
 

@@ -32,7 +32,7 @@ myApp.component('demoMenu', {
     </md-list>\
     </md-sidenav>',
     controller: function demoMenuCtrl(demoService) {
-        this.items = demoService.Extensions.layersSelection;
+        this.items = demoService.Extensions;
 
         // add a method that changes the demoContentCtrl -> this.contentCtrl.template...
         this.selectExtension = function (selectedDemo) {

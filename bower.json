@@ -22,7 +22,8 @@
   ],
   "devDependencies": {
     "jasmine-core": "~2.4.1",
-    "angular-material": "~1.0.5"
+    "angular-material": "~1.0.5",
+    "angular-mocks": "~1.5.0"
   },
   "dependencies": {
     "ui-leaflet": "~1.0.0"

@@ -70,7 +70,7 @@ myApp.run(['$templateCache', function ($templateCache) {
         defaults="demoContentCtrl.meta.defaults"\
         flex\
         height="100%">\
-        <ui-leaflet-layers-selector items="demoContentCtrl.layersSelectorData" ng-model="demoContentCtrl.item"></ui-leaflet-layers-selector>\
+        <ui-leaflet-layers-selector items="demoContentCtrl.meta.tilesDict" ng-model="demoContentCtrl.meta.tiles"></ui-leaflet-layers-selector>\
         </leaflet>');
 }]);
 
@@ -95,19 +95,21 @@ myApp.service('demoService', [function () {
                 meta: {
                     tilesDict: {
                         OpenStreetMap_DE: {
+                            name: 'Street map – localized language',
                             url: "http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
                             options: {
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }
                         },
                         OpenStreetMap_Mapnik: {
+                            name: 'Street map - English',
                             url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                             options: {
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }
                         },
                         Esri_WorldImagery: {
-                            name: 'Mapbox Outdoors',
+                            name: 'Satellite imagery',
                             url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
                             type: 'xyz',
                             options: {
@@ -115,6 +117,7 @@ myApp.service('demoService', [function () {
                             }
                         },
                         Thunderforest_Transport: {
+                            name: 'Transportation map',
                             url: 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
                             options: {
                                 attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

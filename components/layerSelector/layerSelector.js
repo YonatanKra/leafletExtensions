@@ -6,14 +6,18 @@ extensionApp.component('uiLeafletLayersSelector', {
         items: '=',
         ngModel: '='
     },
-    controller: function layerSelectorCtrl() {
+    require: {
+        leaflet: '^leaflet'
+    },
+    controller: function layerSelectorCtrl($scope) {
         this.show = true;
         this.selectVal = function (item) {
             this.ngModel = item;
         };
+        this.$onInit = function() {
+            console.log(this.leaflet);
+        };
     },
     controllerAs: 'layerSelectorCtrl'
-   /* require: {
-        leaflet: 'leaflet'
-    }*/
+
 });

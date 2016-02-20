@@ -69,8 +69,9 @@ myApp.run(['$templateCache', function ($templateCache) {
         tiles="demoContentCtrl.meta.tilesDict[demoContentCtrl.meta.tiles]"\
         defaults="demoContentCtrl.meta.defaults"\
         flex\
-        height="100%"\
-        ui-leaflet-layers-selector="demoContentCtrl.meta.tilesDict"></leaflet>');
+        height="100%">\
+        <ui-leaflet-layers-selector items="demoContentCtrl.layersSelectorData" ng-model="demoContentCtrl.item"></ui-leaflet-layers-selector>\
+        </leaflet>');
 }]);
 
 myApp.service('demoService', [function () {

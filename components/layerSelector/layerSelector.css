@@ -1,5 +1,6 @@
 h1, a, li {
   font-family: Roboto, sans-serif;
+  font-weight: bold;
 }
 
 h1 {
@@ -11,13 +12,13 @@ h1 {
 }
 
 a, li {
-  color: #6b6b6b;
+  color: #333 !important;
   text-decoration: none;
 }
 
 .nav {
   /*margin-left: 20%;*/
-    position:absolute;
+  position:absolute;
 }
 .nav > li {
   display: inline-block;
@@ -33,18 +34,18 @@ a, li {
 }
 .drop ul {
   position: absolute;
-  left: 0;
-  top: 3em;
+  left: 11px;
+  top: 97px;
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   -webkit-transform: scale(0);
-          transform: scale(0);
+  transform: scale(0);
   -webkit-transform-origin: 0 0;
-          transform-origin: 0 0;
+  transform-origin: 0 0;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.16), 0 2px 8px 0 rgba(0, 0, 0, 0.12);
-    z-index: 1000;
-    padding-left: 0px;
-    background-color: #ebebeb;
+  z-index: 1000;
+  padding-left: 0px;
+  background-color: #ebebeb;
 }
 .drop ul li {
   display: block;
@@ -62,50 +63,17 @@ a, li {
 }
 .drop:hover ul {
   -webkit-transform: scale(1);
-          transform: scale(1);
+  transform: scale(1);
 }
 
-.follow {
-  width: 42px;
-  height: 42px;
-  border-radius: 50px;
-  background: #03A9F4;
-  display: block;
-  margin: 300px auto 0;
-  white-space: nowrap;
-  padding: 13px;
-  box-sizing: border-box;
-  color: white;
-  -webkit-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  font-family: Roboto, sans-serif;
-  text-decoration: none;
-  box-shadow: 0 5px 6px 0 rgba(0, 0, 0, 0.2);
-}
-.follow i {
-  margin-right: 20px;
-  -webkit-transition: margin-right 0.2s ease;
-  transition: margin-right 0.2s ease;
-}
-.follow:hover {
-  width: 134px;
-}
-.follow:hover i {
-  margin-right: 10px;
-}
-
-@media screen and (max-width: 800px) {
-  .follow {
-    margin: 400px auto 0;
-  }
-}
 .leaflet-control-globe-toggle {
-    background-image: url(images/globe.png);
-    background-repeat: no-repeat;
-    width: 32px;
-    height: 32px;
-    position:absolute;
-    z-index:999;
-    top: 10px;
-    left: 10px;
+  background-image: url(images/globe-colors.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 32px;
+  height: 32px;
+  position:absolute;
+  z-index:999;
+  top: 74px;
+  left: 8px;
 }

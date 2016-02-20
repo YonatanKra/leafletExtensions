@@ -70,7 +70,9 @@ myApp.run(['$templateCache', function ($templateCache) {
         defaults="demoContentCtrl.meta.defaults"\
         flex\
         height="100%">\
-        <ui-leaflet-layers-selector items="demoContentCtrl.meta.tilesDict" ng-model="demoContentCtrl.meta.tiles"></ui-leaflet-layers-selector>\
+        <ui-leaflet-layers-selector \
+        items="demoContentCtrl.meta.tilesDict" \
+        ng-model="demoContentCtrl.meta.tiles"></ui-leaflet-layers-selector>\
         </leaflet>');
 }]);
 

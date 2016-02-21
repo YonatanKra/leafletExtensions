@@ -72,7 +72,7 @@ myApp.run(['$templateCache', function ($templateCache) {
         height="100%">\
         <ui-leaflet-layers-selector \
         items="demoContentCtrl.meta.tilesDict" \
-        ng-model="demoContentCtrl.meta.tiles"></ui-leaflet-layers-selector>\
+        current-item="demoContentCtrl.meta.tiles"></ui-leaflet-layers-selector>\
         </leaflet>');
 
     $templateCache.put('leafletLocationsEditor', '<div>leafletLocationsEditor</div>');

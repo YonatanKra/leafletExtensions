@@ -131,8 +131,8 @@ myApp.service('demoService', [function () {
                         }
                     },
                     center: {
-                        lat: 51.505,
-                        lng: -0.09,
+                        lat: 31.59,
+                        lng: 120.29,
                         zoom: 8
                     },
                     tiles: 'OpenStreetMap_DE'

@@ -11,8 +11,8 @@ extensionApp.component('uiLeafletLayersSelector', {
     },
     controller: function layerSelectorCtrl($scope) {
         this.show = true;
-        this.selectVal = function (item) {
-            this.ngModel = item;
+        this.selectVal = function (index) {
+            this.ngModel = Object.keys(this.items)[index];
         };
         this.$onInit = function() {
             console.log(this.leaflet);

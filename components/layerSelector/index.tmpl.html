@@ -4,7 +4,7 @@
     <li class="drop">
         <a class="leaflet-control-globe-toggle" href="#" title="change map" ></a>
         <ul ng-show="layerSelectorCtrl.show"><!--ng-click="layerSelectorCtrl.show = !layerSelectorCtrl.show"-->
-            <li ng-repeat="item in layerSelectorCtrl.items" ng-if="item.name"><a href="#" ng-click="layerSelectorCtrl.selectVal(item)">{{item.name}}</a></li>
+            <li ng-repeat="item in layerSelectorCtrl.items" ng-if="item.name"><a href="#" ng-click="layerSelectorCtrl.selectVal($index)">{{item.name}}</a></li>
         </ul>
     </li>
 </div>

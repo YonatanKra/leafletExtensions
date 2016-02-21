@@ -5,7 +5,7 @@
 
 /* our css */
 @import url("components/layerSelector/layerSelector.css");
-
+@import url("components/demoApp.css");
 html, body, #demoWrapper{
     height: 100%;
 }

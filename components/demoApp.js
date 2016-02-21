@@ -51,7 +51,7 @@ myApp.component('demoContent', {
     controller: function (demoService) {
 
         // get every change event in menu item
-        this.changeDemoTemplate = (function changeDemoTempalte(newDemo, oldDemo) {
+        this.changeDemoTemplate = (function (newDemo, oldDemo) {
             this.template = newDemo.template;
             this.meta = newDemo.meta;
         }).bind(this);
@@ -74,6 +74,9 @@ myApp.run(['$templateCache', function ($templateCache) {
         items="demoContentCtrl.meta.tilesDict" \
         ng-model="demoContentCtrl.meta.tiles"></ui-leaflet-layers-selector>\
         </leaflet>');
+
+    $templateCache.put('leafletLocationsEditor', '<div>leafletLocationsEditor</div>');
+
 }]);
 
 myApp.service('demoService', [function () {
@@ -82,7 +85,7 @@ myApp.service('demoService', [function () {
     var data =
     {
         triggerSelectDemoEvent: function (newDemo) {
-            for (var i = 0; i < selectDemoEvents; i++) {
+            for (var i = 0; i < selectDemoEvents.length; i++) {
                 selectDemoEvents[i](newDemo, currentDemo);
             }
             currentDemo = newDemo;
@@ -97,7 +100,7 @@ myApp.service('demoService', [function () {
                 meta: {
                     tilesDict: {
                         OpenStreetMap_DE: {
-                            name: 'Street map – localized language',
+                            name: 'Street map - localized language',
                             url: "http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
                             options: {
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -133,6 +136,10 @@ myApp.service('demoService', [function () {
                     },
                     tiles: 'OpenStreetMap_DE'
                 }
+            },
+            locationsEditor: {
+                name: 'locations Editor',
+                template: 'leafletLocationsEditor'
             }
         }
     };

@@ -71,6 +71,7 @@ myApp.run(['$templateCache', function ($templateCache) {
         flex\
         height="100%">\
         <ui-leaflet-layers-selector \
+        current-tile = "demoContentCtrl.meta.tiles"\
         tiles-list="demoContentCtrl.meta.tilesDict">\
         </ui-leaflet-layers-selector>\
         </leaflet>');

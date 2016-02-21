@@ -3,8 +3,7 @@ var extensionApp = angular.module('ui-leaflet-extensions', ['ui-leaflet']);
 extensionApp.component('uiLeafletLayersSelector', {
     templateUrl: 'components/layerSelector/index.tmpl.html',
     bindings: {
-        tilesList: '=',
-        currentTile: '='
+        tilesList: '='
     },
     require: {
         leaflet: '^leaflet'

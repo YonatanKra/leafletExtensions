@@ -66,12 +66,10 @@ myApp.component('demoContent', {
 
 myApp.run(['$templateCache', function ($templateCache) {
     $templateCache.put('leafletLayersSelector', '<leaflet lf-center="demoContentCtrl.meta.center" \
-        tiles="demoContentCtrl.meta.tilesDict[demoContentCtrl.meta.tiles]"\
         defaults="demoContentCtrl.meta.defaults"\
         flex\
         height="100%">\
         <ui-leaflet-layers-selector \
-        current-tile = "demoContentCtrl.meta.tiles"\
         tiles-list="demoContentCtrl.meta.tilesDict">\
         </ui-leaflet-layers-selector>\
         </leaflet>');

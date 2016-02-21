@@ -25,7 +25,7 @@ myApp.component('demoMenu', {
     <h1 class="md-toolbar-tools">Extensions</h1>\
     </md-toolbar>\
     <md-list>\
-    <md-list-item ng-repeat="item in demoMenuCtrl.items"\
+    <md-list-item class="list-item-extension" ng-repeat="item in demoMenuCtrl.items"\
                     ng-click="demoMenuCtrl.selectExtension(item)">\
     {{item.name}}\
     </md-list-item>\
@@ -51,7 +51,7 @@ myApp.component('demoContent', {
     controller: function (demoService) {
 
         // get every change event in menu item
-        this.changeDemoTemplate = (function (newDemo, oldDemo) {
+        this.changeDemoTemplate = (function changeDemoTemplate(newDemo, oldDemo) {
             this.template = newDemo.template;
             this.meta = newDemo.meta;
         }).bind(this);
@@ -71,8 +71,8 @@ myApp.run(['$templateCache', function ($templateCache) {
         flex\
         height="100%">\
         <ui-leaflet-layers-selector \
-        items="demoContentCtrl.meta.tilesDict" \
-        current-item="demoContentCtrl.meta.tiles"></ui-leaflet-layers-selector>\
+        tiles-list="demoContentCtrl.meta.tilesDict">\
+        </ui-leaflet-layers-selector>\
         </leaflet>');
 
     $templateCache.put('leafletLocationsEditor', '<div>leafletLocationsEditor</div>');
@@ -138,7 +138,7 @@ myApp.service('demoService', [function () {
                 }
             },
             locationsEditor: {
-                name: 'locations Editor',
+                name: 'Locations Editor',
                 template: 'leafletLocationsEditor'
             }
         }

@@ -63,14 +63,15 @@ myApp.component('demoContent', {
         demoService.addSelectDemoCallback(this.changeDemoTemplate);
     }
 });
-
+/*tiles="demoContentCtrl.meta.tilesDict[demoContentCtrl.meta.tiles]"\*/
 myApp.run(['$templateCache', function ($templateCache) {
     $templateCache.put('leafletLayersSelector', '<leaflet lf-center="demoContentCtrl.meta.center" \
         defaults="demoContentCtrl.meta.defaults"\
         flex\
         height="100%">\
         <ui-leaflet-layers-selector \
-        tiles-list="demoContentCtrl.meta.tilesDict">\
+        tiles-list="demoContentCtrl.meta.tilesDict"\
+        default-tile="demoContentCtrl.meta.defaultTile">\
         </ui-leaflet-layers-selector>\
         </leaflet>');
 
@@ -99,14 +100,14 @@ myApp.service('demoService', [function () {
                 meta: {
                     tilesDict: {
                         OpenStreetMap_DE: {
-                            name: 'Street map - localized language',
+                            name: 'Street map - English',
                             url: "http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
                             options: {
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }
                         },
                         OpenStreetMap_Mapnik: {
-                            name: 'Street map - English',
+                            name: 'Street map - localized language',
                             url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                             options: {
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -133,7 +134,7 @@ myApp.service('demoService', [function () {
                         lng: 120.29,
                         zoom: 8
                     },
-                    tiles: 'OpenStreetMap_DE'
+                    defaultTile: 'OpenStreetMap_DE'
                 }
             },
             locationsEditor: {

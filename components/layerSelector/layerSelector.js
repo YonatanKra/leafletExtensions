@@ -3,7 +3,8 @@ var extensionApp = angular.module('ui-leaflet-extensions', ['ui-leaflet']);
 extensionApp.component('uiLeafletLayersSelector', {
     templateUrl: 'components/layerSelector/index.tmpl.html',
     bindings: {
-        tilesList: '='
+        tilesList: '=',
+        defaultTile: "="
     },
     require: {
         leaflet: '^leaflet'
@@ -12,7 +13,8 @@ extensionApp.component('uiLeafletLayersSelector', {
         var leafletScope;
         var vm = this;
 
-        vm.show = true;
+        vm.show = false;
+        vm.currentTile = "nothing";
 
         vm.$onInit = function() {
             leafletScope = this.leaflet.getLeafletScope();
@@ -21,12 +23,16 @@ extensionApp.component('uiLeafletLayersSelector', {
                 // get the map's defaults
                 var defaults = leafletMapDefaults.getDefaults();
 
+                var tiles = vm.tilesList[vm.defaultTile];
+
                 /**
                  * @name switchTile
                  * @description allows to switch tile on click
                  * @param tiles
                  */
                 vm.switchTile = function switchTile(tiles){
+                    vm.show = false;
+                    vm.currentTile = tiles.name;
                     // gets the map's tileLayerOptions
                     var tileLayerOptions = defaults.tileLayerOptions;
                     // gets the map's tileLayerUrl
@@ -71,6 +77,8 @@ extensionApp.component('uiLeafletLayersSelector', {
                         tileLayerObj.setUrl(tiles.url);
                     }
                 };
+
+                vm.switchTile(tiles);
 
                 leafletScope.$on('$destroy', function(){
                     map = null;

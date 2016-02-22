@@ -4,11 +4,13 @@
     <li class="drop">
         <a class="leaflet-control-globe-toggle"
            href="#"
-           title="change map" ></a>
-        <ul ng-show="layerSelectorCtrl.show"><!--ng-click="layerSelectorCtrl.show = !layerSelectorCtrl.show"ng-if="tile.name"-->
+           title="change map"
+           ng-click="layerSelectorCtrl.show = !layerSelectorCtrl.show"
+        ></a>
+        <ul ng-show="layerSelectorCtrl.show">
             <li ng-repeat="tile in layerSelectorCtrl.tilesList"
                 ng-click="layerSelectorCtrl.switchTile(tile)">
-                <a>
+                <a ng-class="{selected: tile.name == layerSelectorCtrl.currentTile}">
                     {{tile.name}}
                 </a>
             </li>

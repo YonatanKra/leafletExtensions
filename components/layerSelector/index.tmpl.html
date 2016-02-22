@@ -6,9 +6,9 @@
            href="#"
            title="change map"
            ng-click="layerSelectorCtrl.show = !layerSelectorCtrl.show"
-        ></a>
+        >{{layerSelectorCtrl.show}}</a>
         <ul ng-show="layerSelectorCtrl.show">
-            <li ng-repeat="tile in layerSelectorCtrl.tilesList"
+            <li ng-repeat="tile in layerSelectorCtrl.unionLayers"
                 ng-click="layerSelectorCtrl.switchTile(tile)">
                 <a ng-class="{selected: tile.name == layerSelectorCtrl.currentTile}">
                     {{tile.name}}

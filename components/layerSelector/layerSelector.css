@@ -73,10 +73,20 @@ a, li {
   color: #686868 !important;
 }
 
-.drop:hover ul {
+
+.hidden-div:hover ul{
+  visibility: hidden;
+  transition: 0.2s 1s;
+}
+/*.drop ul:hover{
   -webkit-transform: scale(1);
   transform: scale(1);
-}
+}*/
+/*
+.drop:after {
+  visibility: hidden;
+  transition: 0.2s 1s;
+}*/
 
 .leaflet-control-globe-toggle {
   background-image: url(images/globe-colors.png);

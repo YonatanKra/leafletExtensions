@@ -69,9 +69,12 @@ myApp.run(['$templateCache', function ($templateCache) {
         defaults="demoContentCtrl.meta.defaults"\
         flex\
         height="100%">\
+        ng-click="demoContentCtrl.show = false"\
         <ui-leaflet-layers-selector \
         tiles-list="demoContentCtrl.meta.tilesDict"\
-        default-tile="demoContentCtrl.meta.defaultTile">\
+        chinese-providers-tiles-list="demoContentCtrl.meta.ChineseProviders"\
+        default-tile="demoContentCtrl.meta.defaultTile"\
+        show="demoContentCtrl.show">\
         </ui-leaflet-layers-selector>\
         </leaflet>');
 
@@ -98,22 +101,22 @@ myApp.service('demoService', [function () {
                 name: 'Layers Selection',
                 template: 'leafletLayersSelector',
                 meta: {
-                    tilesDict: {
-                        OpenStreetMap_DE: {
+                    tilesDict: [
+                        {
                             name: 'Street map - English',
                             url: "http://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png",
                             options: {
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }
                         },
-                        OpenStreetMap_Mapnik: {
+                        {
                             name: 'Street map - localized language',
                             url: "http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                             options: {
                                 attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }
                         },
-                        Esri_WorldImagery: {
+                        {
                             name: 'Satellite imagery',
                             url: 'http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}',
                             type: 'xyz',
@@ -121,20 +124,77 @@ myApp.service('demoService', [function () {
                                 attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
                             }
                         },
-                        Thunderforest_Transport: {
+                        {
                             name: 'Transportation map',
                             url: 'http://{s}.tile.thunderforest.com/transport/{z}/{x}/{y}.png',
                             options: {
                                 attribution: '&copy; <a href="http://www.opencyclemap.org">OpenCycleMap</a>, &copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                             }
                         }
-                    },
+                    ],
+                    ChineseProviders:[
+                        {
+                            name: 'GaoDe.Normal',
+                                layersGroup: {
+                                    Map: {
+                                         name: 'GaoDe.Normal.Map',
+                                         maxZoom: 18,
+                                         minZoom: 5
+                                }
+                            }
+                        },
+                        {
+                            name:'GaoDe.Satellite',
+                            layersGroup: {
+                                Map:{
+                                    name: 'GaoDe.Satellite.Map',
+                                    maxZoom: 18,
+                                    minZoom: 5
+                                },
+                                Annotion:{
+                                    name: 'GaoDe.Satellite.Annotion',
+                                    maxZoom: 18,
+                                    minZoom: 5
+                                }
+                            }
+                        },
+                        {
+                            name:'TianDiTu.Normal',
+                            layersGroup: {
+                                Map: {
+                                    name: 'TianDiTu.Normal.Map',
+                                    maxZoom: 18,
+                                    minZoom: 5
+                                },
+                                Annotion: {
+                                    name: 'TianDiTu.Normal.Annotion',
+                                    maxZoom: 18,
+                                    minZoom: 5
+                                }
+                            }
+                        },
+                        {
+                            name:'TianDiTu.Satellite',
+                            layersGroup: {
+                                Map: {
+                                    name: 'TianDiTu.Satellite.Map',
+                                    maxZoom: 18,
+                                    minZoom: 5
+                                },
+                                Annotion: {
+                                    name: 'TianDiTu.Satellite.Annotion',
+                                    maxZoom: 18,
+                                    minZoom: 5
+                                }
+                            }
+                        }
+                    ],
                     center: {
                         lat: 31.59,
                         lng: 120.29,
                         zoom: 8
                     },
-                    defaultTile: 'OpenStreetMap_DE'
+                    defaultTile: 0
                 }
             },
             locationsEditor: {
